@@ -1,0 +1,2 @@
+class FarmerGroup < ApplicationRecord
+end
