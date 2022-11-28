@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_091236) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_091523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_091236) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "secretary_farmer_id"
+    t.index ["secretary_farmer_id"], name: "index_farmer_groups_on_secretary_farmer_id"
   end
 
   create_table "farmers", force: :cascade do |t|
@@ -28,5 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_091236) do
     t.index ["farmers_id"], name: "index_farmers_on_farmers_id"
   end
 
+  add_foreign_key "farmer_groups", "farmers", column: "secretary_farmer_id"
   add_foreign_key "farmers", "farmers", column: "farmers_id"
 end
