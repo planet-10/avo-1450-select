@@ -24,12 +24,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_091523) do
 
   create_table "farmers", force: :cascade do |t|
     t.string "name"
-    t.bigint "farmers_id", null: false
+    t.bigint "farmer_group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["farmers_id"], name: "index_farmers_on_farmers_id"
+    t.index ["farmer_group_id"], name: "index_farmers_on_farmer_group_id"
   end
 
   add_foreign_key "farmer_groups", "farmers", column: "secretary_farmer_id"
-  add_foreign_key "farmers", "farmers", column: "farmers_id"
+  add_foreign_key "farmers", "farmer_groups"
 end

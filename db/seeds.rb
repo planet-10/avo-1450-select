@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+fg1 = FarmerGroup.find_or_create_by(
+  name: "Group1",
+  )
+
+fg2 = FarmerGroup.find_or_create_by(
+  name: "Group2",
+  )
+
+f11 = Farmer.find_or_create_by(
+  name: "Alice",
+  farmer_group_id: fg1.id
+)
+
+f21 = Farmer.find_or_create_by(
+  name: "Bob",
+  farmer_group_id: fg1.id
+)
+
+f21 = Farmer.find_or_create_by(
+  name: "Maria",
+  farmer_group_id: fg2.id
+)
