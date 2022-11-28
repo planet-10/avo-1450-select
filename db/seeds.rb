@@ -20,3 +20,6 @@ f21 = Farmer.find_or_create_by(
   name: "Maria",
   farmer_group_id: fg2.id
 )
+
+fg1.secretary_farmer = f11
+fg1.save
